@@ -35,7 +35,6 @@ NSString * const kRemindLaterDate                       = @"RR_REMIND_LATER_DATE
 @property (nonatomic, strong) NSString *currentAppVersion;
 @property (nonatomic, assign) BOOL isFirstRun;
 @property (nonatomic, strong) UIViewController *rootVC;
-@property (nonatomic, strong) RequestRating *alertViewDelegate;
 
 @end
 
@@ -60,7 +59,6 @@ NSString * const kRemindLaterDate                       = @"RR_REMIND_LATER_DATE
         promptAfterDays = days;
         promptAfterUses = uses;
         intervalDaysToPrompt = interval;
-        self.alertViewDelegate = self;
     }
     return self;
 }
@@ -155,7 +153,7 @@ NSString * const kRemindLaterDate                       = @"RR_REMIND_LATER_DATE
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kAlertTitle message:kAlertMessage
-                                                       delegate:self.alertViewDelegate
+                                                       delegate:self
                                               cancelButtonTitle:kAlertCanceButtonTitle
                                               otherButtonTitles:kAlertOKButtonTitle, kAlertRemindMeLaterButtonTitle, nil];
         [alert show];
